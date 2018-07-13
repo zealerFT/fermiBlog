@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['prefix' => 'test', 'middleware' => ['cors']], function () {
+    Route::get('/first', 'Test\TestController@first');
+    Route::get('/mongodb', 'Test\TestController@mongodb');
+    Route::get('/emailqueue', 'Test\TestController@emailqueue');
+    
+});
